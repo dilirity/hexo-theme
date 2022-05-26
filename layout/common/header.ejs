@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title><%= page.title %></title>
+	<link href="//fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+	<%- css('css/main') %>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<a href="/" id="logo"></a>
+			<nav id="main-nav">
+				<% for (const item in site.data['main-menu']) { %>
+					<% var pattern = new RegExp(item); %>
+					<a href="<%= site.data['main-menu'][item].href %>" class="nav-item<%- ('/' + page.type).match(pattern) ? ' current' : '' %>"><%= item %></a>
+				<% } %>
+			</nav>
+		</header>
